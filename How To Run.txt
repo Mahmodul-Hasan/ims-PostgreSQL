@@ -1,0 +1,12 @@
+At first, import the sql file to youre PostgreSQL Database.Then Open the application through Xampp.
+
+There are two types of user here,
+1.Admin (user Id: 101  password: pass)
+2.Manager (user Id: 201  password: pass)
+
+About this Application: 
+
+Skill Used: HTML, CSS, JavaScript, PHP, JSON, Bootstrap, PostgreSQL Database
+Details: This is an inventory management system for the internal affairs of a confectionary. It includes: raw materials, finished products, component parts,
+supplies and work-in- progress. 
+System provides information to efficiently manage the flow of materials, effectively utilize people and equipment, coordinate internal activities. 
