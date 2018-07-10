@@ -1,4 +1,4 @@
-At first, import the sql file to youre PostgreSQL Database.Then Open the application through Xampp.
+At first,create a datbase name "ims",then import the sql file to youre ims Database in PostgreSQL.Then Open the application through Xampp.
 
 There are two types of user here,
 1.Admin (user Id: 101  password: pass)
