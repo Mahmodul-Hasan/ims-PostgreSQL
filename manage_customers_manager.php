@@ -3,7 +3,7 @@ session_start();
 if($_SESSION["mgr"] == "false"){
 	header("location: Login.php");
 }
-require("db.php");
+require("dbn.php");
 include("manager_side_bar.html");
 $result = getJSONFromDB("select * from customer");
 $result = json_decode($result, true);

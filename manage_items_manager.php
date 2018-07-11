@@ -3,10 +3,14 @@ session_start();
 if($_SESSION["mgr"] == "false"){
 	header("location: Login.php");
 }
-require("db.php");
+require("dbn.php");
 include("manager_side_bar.html");
 
-$result = getJSONFromDB("select items.item_id, items.item_name, categories.category_name, items.item_price, items.item_stock, items.production_date from items inner join categories on items.category_id = categories.category_id");
+$result = getJSONFromDB("select items.item_id, items.item_name, categories.category_name, 
+items.item_price, items.item_stock, items.production_date 
+from items inner join categories on 
+items.category_id = categories.category_id");
+
 $result = json_decode($result, true);
 
 $loadCategoriesCB = getJSONFromDB("select * from categories");
@@ -222,7 +226,7 @@ function searchTable() {
 						</tr>
 						<tr>
 							<td></td>
-							<td> <input type="submit" name="add_new_item" value="Add Item"></td>
+							<td> <input type="submit" name="add_new_item" value="Add"></td>
 						</tr>
 					</table>
 				</form>
@@ -251,7 +255,7 @@ function searchTable() {
 
 						<tr>
 							<td></td>
-							<td> <input type="submit" name="update_item" value="Update Item"></td>
+							<td> <input type="submit" name="update_item" value="Update"></td>
 						</tr>
 					</table>
 				</form>
@@ -271,7 +275,7 @@ function searchTable() {
 						</tr>
 						<tr>
 							<td></td>
-							<td> <input type="submit" name="add_stock" value="Add Stock"></td>
+							<td> <input type="submit" name="add_stock" value="Add"></td>
 						</tr>
 					</table>
 				</form>

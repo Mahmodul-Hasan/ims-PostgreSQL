@@ -3,11 +3,17 @@ session_start();
 if($_SESSION["mgr"] == "false"){
 	header("location: Login.php");
 }
-require("db.php");
+require("dbn.php");
 include("manager_side_bar.html");
 $managerId = $_SESSION['manager_id'];
 
-$result = getJSONFromDB("select raw_materials.material_id, raw_materials.material_name, vendor.vendor_name, raw_materials.available_stock, raw_materials.material_unit_price, raw_materials.production_date from raw_materials inner join vendor on raw_materials.vendor_id = vendor.vendor_id");
+$result = getJSONFromDB("select raw_materials.material_id, raw_materials.material_name, 
+vendor.vendor_name, raw_materials.available_stock, raw_materials.material_unit_price, 
+raw_materials.production_date
+ from raw_materials 
+ inner join vendor 
+ on raw_materials.vendor_id = vendor.vendor_id");
+ 
 $result = json_decode($result, true);
 
 $loadVendorsCB = getJSONFromDB("select * from vendor");
@@ -41,37 +47,39 @@ if(isset($_REQUEST["add_new_material"]))
 	}
 }
 
-if(isset($_REQUEST["update_material"]) )
+if(isset($_REQUEST["update_item"]) )
 {
 	if(!isset($_REQUEST["item_id"]) || strlen((String)$_REQUEST["item_id"])==0)
 	{
 		header("Location: manage_rawmaterials_manager.php");
 	}
 	$id = $_REQUEST["item_id"];
-	$result = getJSONFromDB("select * from items where item_id = $id");
+	$result = getJSONFromDB("select * from raw_materials where material_id = $id");
 	$result = json_decode($result, true);
+	
 	if(isset($_REQUEST["item_name"]) && strlen((String)$_REQUEST["item_name"])!=0)
 	{
 		$name = $_REQUEST["item_name"];
 	}
 	else{
-		$name = $result[0]["item_name"];
+		$name = $result[0]["material_name"];
 	}
 	if(isset($_REQUEST["item_price"]) && strlen($_REQUEST["item_price"])!=0)
 	{
 		$price = $_REQUEST["item_price"];
 	}
 	else{
-		$price = $result[0]["item_price"];
+		$price = $result[0]["material_unit_price"];
 	}
 	if(isset($_REQUEST["item_stock"]) && strlen($_REQUEST["item_stock"])!=0)
 	{
 		$stock = $_REQUEST["item_stock"];
 	}
 	else{
-		$stock = $result[0]["item_stock"];
+		$stock = $result[0]["available_stock"];
 	}
-	updateIntoDB("update items set item_name = '$name', item_price = '$price', item_stock = '$stock' where item_id = '$id'");
+	updateIntoDB("update raw_materials set material_name = '$name', material_unit_price = '$price', available_stock = '$stock' where material_id = '$id'");
+	
 	header("Location: manage_rawmaterials_manager.php");
 
 }
@@ -222,7 +230,7 @@ function searchTable() {
 						</tr>
 						<tr>
 							<td></td>
-							<td> <input type="submit" name="add_new_material" value="Add Item"></td>
+							<td> <input type="submit" name="add_new_material" value="Add"></td>
 						</tr>
 					</table>
 				</form>
@@ -231,7 +239,7 @@ function searchTable() {
 			<br>
 				<form action="manage_rawmaterials_manager.php" method="POST">
 					<table id="tbb">
-						<h3>Update Item</h3>
+						<h3>Update Raw Materials</h3>
 						<tr>
 							<td>Enter ID</td>
 							<td><input type="number" name="item_id"></td>
@@ -251,7 +259,7 @@ function searchTable() {
 
 						<tr>
 							<td></td>
-							<td> <input type="submit" name="update_item" value="Update Item"></td>
+							<td> <input type="submit" name="update_item" value="Update"></td>
 						</tr>
 					</table>
 				</form>
@@ -271,7 +279,7 @@ function searchTable() {
 						</tr>
 						<tr>
 							<td></td>
-							<td> <input type="submit" name="add_stock" value="Add Stock"></td>
+							<td> <input type="submit" name="add_stock" value="Add"></td>
 						</tr>
 					</table>
 				</form>

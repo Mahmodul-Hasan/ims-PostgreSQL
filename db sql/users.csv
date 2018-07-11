@@ -1,0 +1,9 @@
+user_id,role,password,status
+101,admin,pass,active
+202,mgr,pass,inactive
+203,mgr,pass,active
+210,mgr,pass,active
+211,mgr,pass,active
+212,mgr,pass,active
+213,mgr,pass,active
+201,mgr,pass,active

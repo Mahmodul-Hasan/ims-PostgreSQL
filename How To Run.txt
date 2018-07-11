@@ -1,4 +1,6 @@
-At first,create a datbase name "ims",then import the sql file to youre ims Database in PostgreSQL.Then Open the application through Xampp.
+At first,create a datbase name "ims",then import the sql file from the folder "DB SQL" to youre ims Database in PostgreSQL.
+After that import all the .csv file to your database.
+Then Open the application through Xampp.
 
 There are two types of user here,
 1.Admin (user Id: 101  password: pass)

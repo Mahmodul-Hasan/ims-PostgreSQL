@@ -1,0 +1,6 @@
+material_id,manager_id,vendor_id,material_name,available_stock,material_unit_price,production_date
+700004,201,601,mat4,10,20,2017-03-16
+700005,201,604,Aluminia,150,315,2018-07-11
+700003,202,607,Citric Acid,50,45,2017-03-13
+700002,202,602,Bread,45,50,2017-04-01
+700001,201,601,Grains,90,50,2017-03-01

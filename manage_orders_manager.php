@@ -118,7 +118,7 @@ function searchTable() {
 			float: left;
 		}
 		.right{
-			width: 350px;
+			width: 340px;
 			float: right;
 		}
 		#tbb{
