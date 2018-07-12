@@ -1,13 +1,41 @@
-At first,create a datbase name "ims",then import the sql file from the folder "DB SQL" to youre ims Database in PostgreSQL.
-After that import all the .csv file to your database.
-Then Open the application through Xampp.
+Check the how to run.docsx 
+For help How To RUN::
+MAHMODUL HASAN BABUL
+contact:    +8801521212702
+	+8801867381390
+e-mail: mahmodul1390@gmail.com
 
+At first,unzip this project keep it inside htdocs folder of your xampp/wapm folder.
+C:\xampp\htdocs\imsFi
+this is the path of my project which is inside the htdocs folder.
+
+
+Then,Create a datbase name "ims" in pgAdmin,then import the sql file/pgsql from the folder "sql" to your ims Database in PostgreSQL via pgAdmin tool.
+If you want to follow pgsql file then follow this step 1:
+[just select the .pgsql file from query tools]
+
+OR,if you want to import the sql file then follow this step 2:->>>>>>>>>>
+Import all the .csv file to your database.
+To Import a CSV file to your database table execute the following QUERY:
+COPY PUBLIC."table_name" FROM 'path of the file\file_name.csv' DELIMITER ',' CSV HEADER;
+here,
+table_name=your table name; //remeber table name in case sensetive
+path of the file=path file which is located in your pc
+
+For Example,if i want to import the address.csv file to my address table,the query will be 
+COPY PUBLIC."address" FROM 'C:\xampp\htdocs\imsFi\sql\address.csv' DELIMITER ',' CSV HEADER;
+
+For the vendor table,the query will be:
+COPY PUBLIC."vendor" FROM 'C:\xampp\htdocs\imsFi\sql\vendor.csv' DELIMITER ',' CSV HEADER;
+Follow this query for import the rest of the file for your tables.
+-<<<<<<<<<<<<<<<
+
+Then Open the application through Browser xampp/wamp server.
 There are two types of user here,
-1.Admin (user Id: 101  password: pass)
+1.Admin      (user Id: 101  password: pass)
 2.Manager (user Id: 201  password: pass)
 
 About this Application: 
-
 Skill Used: HTML, CSS, JavaScript, PHP, JSON, Bootstrap, PostgreSQL Database
 Details: This is an inventory management system for the internal affairs of a confectionary. It includes: raw materials, finished products, component parts,
 supplies and work-in- progress. 
